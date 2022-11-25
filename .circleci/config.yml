@@ -4,7 +4,7 @@ jobs:
       - image: cimg/base:current
     steps:
     - checkout
-    - run: chmod 777 -r .scripts
+    - run: chmod 777 -R .scripts
     - run: ./.scripts/do-exclusively --branch $CIRCLE_BRANCH
   build:
     docker:
