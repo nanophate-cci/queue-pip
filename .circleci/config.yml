@@ -2,9 +2,9 @@ jobs:
   queue_pipeline:
     docker:
       - image: cimg/base:current
-     steps:
-      - checkout
-      - run: ./.scripts/do-exclusively --branch $CIRCLE_BRANCH
+    steps:
+    - checkout
+    - run: ./.scripts/do-exclusively --branch $CIRCLE_BRANCH
   build:
     docker:
       - image: cimg/base:current
@@ -22,9 +22,9 @@ workflows:
   build_and_test:
     jobs:
       - queue_pipeline
-      - build
+      - build:
           requires:
-           - queue_pipeline
+            - queue_pipeline
       - test:
           requires:
             - build
