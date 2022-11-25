@@ -1,13 +1,13 @@
 jobs:
   build:
     docker:
-      - image: cimg/base
+      - image: cimg/base:current
     steps:
       - checkout
       - run: echo "aaa" && sleep 1m
   test:
     docker:
-      - image: cimg/base
+      - image: cimg/base:current
     steps:
       - checkout
       - run: echo "bbbb"
